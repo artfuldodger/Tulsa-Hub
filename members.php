@@ -1,5 +1,6 @@
 <?php
 include "vo/MemberVO.php";
+include "vo/MembershipVO.php";
 if (!logged_in()) {
 	die("You must be logged in to see this page.");	
 }
@@ -57,7 +58,7 @@ if (isset($_POST["add"])) {
             <td><input type="text" name="phone" id="phone" /></td>
         </tr>
         <tr>
-        	<td><label for="preferred_contact">Preferred Contact:</label></td>
+        	<td>Preferred Contact:</td>
             <td>
             	<input type="radio" name="preferred_contact" value="email" checked="checked" /> Email<br />
             	<input type="radio" name="preferred_contact" value="snail" /> Snail Mail<br />
@@ -69,16 +70,24 @@ if (isset($_POST["add"])) {
             <td><input type="checkbox" name="volunteer_contact" id="volunteer_contact" /></td>
         </tr>
         <tr>
-        	<td><label for="membership_type">Membership Type:</label></td>
+        	<td>Membership Type:</td>
             <td>
-            	<input type="radio" name="membership_type" value="1" checked="checked" /> Individual $20<br />
-            	<input type="radio" name="membership_type" value="2" /> Household (up to 3 people) $30<br />
-                <input type="radio" name="membership_type" value="3" /> Student $15
+            <?php
+				$membershipDao = getDao("membership");
+				$memberships = $membershipDao->getAll();
+				foreach ($memberships as $membership) {
+					echo '<input type="radio" name="membership_type" value="',$membership->getId(),'"';
+					if ($membership->getId() == 1) {
+						echo ' checked="checked"';	
+					}
+					echo ' /> ',$membership->getDescription(),' $',$membership->getCost(),'<br />';	
+				}
+				?>
             </td>
         </tr>
         <tr>
         	<td>
-            	<label for="household_members">If household, list other members:</label>
+            	If household, list other members:
             </td>
             <td>
             	<input type="text" name="household_1" /><br />
