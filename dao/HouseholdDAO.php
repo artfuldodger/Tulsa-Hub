@@ -47,7 +47,7 @@ class HouseholdDAO {
 		}
 		$index = 0;
 		while ($row = mysql_fetch_assoc($result)) {
-				$householdMembers[$index] = getUserFromRow($row);
+				$householdMembers[$index] = $this->getUserFromRow($row);
 				$index++;
 		}
 		return $householdMembers;

@@ -21,7 +21,7 @@ class MembershipDAO {
 
   function getUserFromResult($result) {
     $row = mysql_fetch_assoc($result);
-    return getUserFromRow($row);
+    return $this->getUserFromRow($row);
   }
   
   function getUserFromRow($row) {

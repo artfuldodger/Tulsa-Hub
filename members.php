@@ -9,6 +9,7 @@ if (!logged_in()) {
 $NUM_MEMBERS_PER_PAGE = 50;
 
 $dao = getDao("member");
+$householdDao = getDao("household");
 
 if (!isset($_GET["page"]) || $_GET["page"] < 1) {
 	$_GET["page"] = 1;	
@@ -36,7 +37,6 @@ if (isset($_POST["add"])) {
 	$member = new MemberVO(0, $_POST["first_name"], $_POST["last_name"], $_POST["email"], $_POST["phone"], $_POST["preferred_contact"], $_POST["volunteer_contact"], $_POST["membership_type"]);
 	$dao->save($member);
 	if (isset($_POST["household_1"]) || isset($_POST["household_2"]) || isset($_POST["household_3"])) {
-		$householdDao = getDao("household");
 		if (trim($_POST["household_1"]) != "") {
 			$household = new HouseholdVO(0, $member->getId(), $_POST["household_1"]);
 			$householdDao->save($household);
@@ -125,7 +125,71 @@ if (count($members) <= 0) {
 	echo '<p>There are no members!</p>';	
 } else {
 	foreach($members as $member) {
-		echo '<p>',$member->toString(),'</p>';
+		$preferredContact = $member->getPreferredContact();
+		$membershipType = $member->getMembershipType();
+		echo "<p>Preferred contact = $preferredContact , membershipType = $membershipType</p>";
+		echo '
+			<table>
+				<tr>
+					<td>Name:</td>
+					<td>',$member->getFirstName(),' ',$member->getLastName(),'</td>
+				</tr>
+				<tr>
+					<td>E-mail Address:</td>
+					<td>',$member->getEmail(),'</td>
+				</tr>
+				<tr>
+					<td>Phone/Cell:</td>
+					<td>',$member->getPhone(),'</td>
+				</tr>
+				<tr>
+					<td>Preferred Contact:</td>
+					<td>',
+						$preferredContact,
+					'</td>
+				</tr>
+				<tr>
+					<td><label for="volunteer_contact">Volunteer Contact:</label></td>
+					<td>';
+					if ($member->getVolunteerContact() == "1") {
+						echo 'YES :)';	
+					} else {
+						echo 'no :(';	
+					}
+					echo '</td>
+				</tr>
+				<tr>
+					<td>Membership Type:</td>
+					<td>';
+					
+						$membershipDao = getDao("membership");
+						$membership = $membershipDao->getByMember($member->getId());
+						echo $membership->getDescription(), ' $', $membership->getCost();
+echo '				</td>
+				</tr>';
+if ($membershipType == 2) {
+	echo '
+				<tr>
+					<td>
+						If household, list other members:
+					</td>
+					<td>';
+	
+						$households = $householdDao->getByMember($member->getId());
+						if (count($households) <= 0) {
+							echo 'No household members';
+						} else {
+							foreach ($households as $household) {
+								echo $household->getName(),'<br />';	
+							}
+						}
+
+echo '				</td>
+				</tr>
+	';
+}
+echo '
+			</table>';
 	}
 
 }
