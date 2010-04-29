@@ -127,7 +127,6 @@ if (count($members) <= 0) {
 	foreach($members as $member) {
 		$preferredContact = $member->getPreferredContact();
 		$membershipType = $member->getMembershipType();
-		echo "<p>Preferred contact = $preferredContact , membershipType = $membershipType</p>";
 		echo '
 			<table>
 				<tr>
@@ -187,9 +186,10 @@ if ($membershipType == 2) {
 echo '				</td>
 				</tr>
 	';
-}
-echo '
+} // end if ($membershipType == 2)
+		echo '
 			</table>';
-	}
+		echo '<hr />';
+	} // end foreach
 
-}
+} // end else
