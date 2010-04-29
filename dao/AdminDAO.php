@@ -3,7 +3,7 @@
 class AdminDAO {
   var $conn;
 
-  function UserDAO(&$conn) {
+  function AdminDAO(&$conn) {
     $this->conn =& $conn;
   }
 

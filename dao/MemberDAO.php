@@ -3,7 +3,7 @@
 class MemberDAO {
   var $conn;
 
-  function UserDAO(&$conn) {
+  function MemberDAO(&$conn) {
     $this->conn =& $conn;
   }
 
