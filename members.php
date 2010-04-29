@@ -34,6 +34,9 @@ if ($numberOfMembers > $NUM_MEMBERS_PER_PAGE) {
 }
 
 if (isset($_POST["add"])) {
+	if ($_POST["volunteer_contact"] == "on") {
+		$_POST["volunteer_contact"] = 1;	
+	}
 	$member = new MemberVO(0, $_POST["first_name"], $_POST["last_name"], $_POST["email"], $_POST["phone"], $_POST["preferred_contact"], $_POST["volunteer_contact"], $_POST["membership_type"]);
 	$dao->save($member);
 	if (isset($_POST["household_1"]) || isset($_POST["household_2"]) || isset($_POST["household_3"])) {
