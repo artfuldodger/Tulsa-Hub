@@ -53,7 +53,7 @@ if (isset($_POST["add"])) {
 }
 
 ?>
-
+<h3>Add a new member</h3>
 <form action="/index.php" method="post">
 
 	<table>
@@ -124,6 +124,7 @@ if (isset($_POST["add"])) {
 if (count($members) <= 0) {
 	echo '<p>There are no members!</p>';	
 } else {
+	echo '<h3>Member List</h3>';
 	foreach($members as $member) {
 		$preferredContact = $member->getPreferredContact();
 		$membershipType = $member->getMembershipType();
