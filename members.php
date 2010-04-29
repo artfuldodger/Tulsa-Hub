@@ -1,6 +1,7 @@
 <?php
 include "vo/MemberVO.php";
 include "vo/MembershipVO.php";
+include "vo/HouseholdVO.php";
 if (!logged_in()) {
 	die("You must be logged in to see this page.");	
 }
@@ -34,6 +35,21 @@ if ($numberOfMembers > $NUM_MEMBERS_PER_PAGE) {
 if (isset($_POST["add"])) {
 	$member = new MemberVO(0, $_POST["first_name"], $_POST["last_name"], $_POST["email"], $_POST["phone"], $_POST["preferred_contact"], $_POST["volunteer_contact"], $_POST["membership_type"]);
 	$dao->save($member);
+	if (isset($_POST["household_1"]) || isset($_POST["household_2"]) || isset($_POST["household_3"])) {
+		$householdDao = getDao("household");
+		if (trim($_POST["household_1"]) != "") {
+			$household = new HouseholdVO(0, $member->getId(), $_POST["household_1"]);
+			$householdDao->save($household);
+		}
+		if (trim($_POST["household_2"]) != "") {
+			$household = new HouseholdVO(0, $member->getId(), $_POST["household_2"]);
+			$householdDao->save($household);
+		}
+		if (trim($_POST["household_3"]) != "") {
+			$household = new HouseholdVO(0, $member->getId(), $_POST["household_3"]);
+			$householdDao->save($household);
+		}
+	}
 }
 
 ?>
