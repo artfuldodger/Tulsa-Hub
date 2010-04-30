@@ -25,7 +25,7 @@ if ($numberOfMembers > $NUM_MEMBERS_PER_PAGE) {
 	echo '<p>Page: ';
 	for ($i = 1; $i <= $numPages; $i++) {
 		if ($_GET["page"] == $i) {
-			echo '$i';	
+			echo $i;	
 		} else {
 			echo '<a href="/index.php?page=',$i,'">',$i,'</a>';	
 		}

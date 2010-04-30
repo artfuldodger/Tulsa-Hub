@@ -18,7 +18,7 @@ include "inc/utils.php";
 
   if (isset($_GET["logout"])) {
     $_SESSION["logout"] = true;
-    $_SESSION["user"] = null;
+    $_SESSION["admin"] = null;
     session_destroy();
 
     echo '<p>You have logged out. Come back soon!</p>';
