@@ -1,5 +1,169 @@
 @charset "UTF-8";
-/* CSS Document */
+
+	body
+	{
+		background-color: #edecec;
+
+
+
+		font-family: Arial,Helvetica,sans-serif
+
+
+	}
+
+	button
+	{
+
+		background-image: url('/images/gradient.jpg');
+		width: 5em;
+		border: 1px solid #000;
+
+
+	}
+
+	button span
+	{
+
+		color: #000;
+		font-weight: bold;
+
+
+	}
+
+	div
+	{
+
+		padding: .5em;
+		margin: 1em;
+	}
+
+	form
+	{
+		padding: 1em;
+	}
+
+	img {
+		border: 0;
+	}
+
+	input
+	{
+
+		width: 150px;
+
+		background-image: url('/images/gradient.jpg');
+
+	}
+
+	label
+	{
+
+		font-weight: bold;
+
+	}
+
+
+
+	#contentContainer
+	{
+
+		background-image: url('/images/bunchaBikes.jpg');
+		background-position: center center;
+		background-repeat: no-repeat;
+
+		height: 500px;
+		margin-left: 5%;
+		margin-right: 5%;
+
+		padding-top: 5em;
+
+
+
+	}
+
+
+	#header
+	{
+
+		background-color: #f0f0f0;
+
+
+
+		text-align: center;
+
+		border: 1px dashed #000;
+
+
+
+	}
+
+	#hubLink
+	{
+
+
+
+
+
+	}
+
+
+
+	#login
+	{
+		background-color: #cc372b;
+
+		height: 25em;
+
+
+		border: 10px solid #fff;
+		clear: both;
+
+		margin-left: 5%;
+		margin-right: 5%;
+
+	}
+
+	#l1
+	{
+
+		float: left;
+		border: 1px solid #000;
+		width: 50%;
+		background-color: #f0f0f0;
+
+
+	}
+
+	#message
+	{
+
+
+
+		text-align: center;
+
+
+
+	}
+
+	#message fieldset
+	{
+
+		padding-bottom: 1em;
+
+	}
+
+	#message fieldset legend
+	{
+		background-color: #f0f0f0;
+		margin-bottom: 1em;
+		padding: .25em;
+		border: 1px solid #000;
+
+
+	}
+
+
+
 .awesome, .awesome:visited {
   background: #222 url(/images/alert-overlay.png) repeat-x;
   display: inline-block;

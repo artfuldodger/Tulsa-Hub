@@ -41,26 +41,72 @@ include "inc/utils.php";
 	include("members.php");
   } else {
 ?>
-  <h1>Looking for the Tulsa Hub home page? <a href="http://www.tulsahub.org">It's over here.</a></h1>
+	<div id="contentContainer">
 
 
-  <form action="/index.php" method="post">
-      <table>
-          <tr>
-              <td><label for="username">Username:</label></td>
-                <td><input type="text" name="username" id="username" value="<?php echo $_POST["username"]; ?>" /></td>
-            </tr>
-            <tr>
-              <td><label for="password">Password:</label></td>
-                <td><input type="password" name="password" id="password" value="<?php echo $_POST["password"]; ?>" /></td>
-            </tr>
-            <tr>
-              <td colspan="2">
-                  <input type="submit" value="Log in" name="login" class="large red awesome" />
-                </td>
-            </tr>
-         </table>
-    </form>
+
+		<div id="login">
+
+			<div id="header">
+				<h3>
+					Hey, welcome to the Login. You know what to do...
+				</h3>
+
+			</div>
+
+
+			<div id="l1">
+
+			   <fieldset>
+
+				   <form action="/index.php" method="post">
+						<label for="username">
+							Username:
+						</label>
+						<input type="text" name="username" id="username" value="" />
+						<br>
+						<br>
+						<label for="password">
+							Password:
+						</label>
+						<input type="password" name="password" id="password" value="" />
+						<br>
+						<br>
+						<br>
+                        <input type="hidden" name="login" value="true" />
+						<button>
+						  <span>Login</span>
+						</button>
+					</form>
+			   </fieldset>
+
+
+			</div>
+
+
+			<div id="message">
+
+			   <fieldset>
+					<legend>
+							Looking for the Tulsa Hub home page?
+					</legend>
+					<a href="http://www.tulsahub.org" title="Link to Tulsa Hub site">
+						<img src="images/hubSite.jpg" alt="Tulsa Hub site image" width="198" height="146" />
+					</a>
+				</fieldset>
+			</div>
+
+
+
+
+
+		</div>
+
+
+
+
+	</div>
+
     
 <?
   } // end showing form (when you're not logged in)
