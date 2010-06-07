@@ -4,195 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Tulsa Hub - Membership</title>
 <link rel="stylesheet" type="text/css" href="inc/styles.css" />
+<link rel="stylesheet" type="text/css" href="css/theHub.css" />
+<script src="scripts/theHub.js"></script>
 
-
-<style>
-
-	body
-	{
-		background-color: #edecec;
-
-
-
-		font-family: Arial,Helvetica,sans-serif
-
-
-	}
-
-	button
-	{
-
-		background-image: url('gradient.jpg');
-		width: 5em;
-		border: 1px solid #000;
-
-
-	}
-
-	button span
-	{
-
-		color: #000;
-		font-weight: bold;
-
-
-	}
-
-	div
-	{
-
-		padding: .5em;
-		margin: 1em;
-	}
-
-	form
-	{
-
-
-		padding: 1em;
-
-
-
-
-
-
-	}
-
-	input
-	{
-
-		width: 150px;
-
-		background-image: url('gradient.jpg');
-
-	}
-
-	label
-	{
-
-		font-weight: bold;
-
-	}
-
-
-
-	#contentContainer
-	{
-
-		background-image: url('bunchaBikes.jpg');
-		background-position: center center;
-		background-repeat: no-repeat;
-
-		height: 500px;
-		margin-left: 5%;
-		margin-right: 5%;
-
-		padding-top: 5em;
-
-
-
-	}
-
-
-	#header
-	{
-
-		background-color: #f0f0f0;
-
-
-
-		text-align: center;
-
-		border: 1px dashed #000;
-
-
-
-	}
-
-	#hubLink
-	{
-
-
-
-
-
-	}
-
-
-
-	#login
-	{
-		background-color: #cc372b;
-
-		height: 25em;
-
-
-		border: 10px solid #fff;
-		clear: both;
-
-		margin-left: 5%;
-		margin-right: 5%;
-
-	}
-
-	#l1
-	{
-
-		float: left;
-		border: 1px solid #000;
-		width: 50%;
-		background-color: #f0f0f0;
-
-
-	}
-
-	#message
-	{
-
-
-
-		text-align: center;
-
-
-
-	}
-
-	#message fieldset
-	{
-
-		padding-bottom: 1em;
-
-	}
-
-	#message fieldset legend
-	{
-		background-color: #f0f0f0;
-		margin-bottom: 1em;
-		padding: .25em;
-		border: 1px solid #000;
-
-
-	}
-
-
-
-
-
-
-
-
-
-
-</style>
 
 
 </head>
 <body>
 
 	<div id="contentContainer">
-
-
-
 		<div id="login">
 
 			<div id="header">
@@ -204,10 +24,9 @@
 
 
 			<div id="l1">
+  				<form action="/index.php" method="post">
+				   <fieldset class="small"><legend>Do that data entry thing</legend>
 
-			   <fieldset>
-
-				   <form action="/index.php" method="post">
 						<label for="username">
 							Username:
 						</label>
@@ -218,16 +37,15 @@
 							Password:
 						</label>
 						<input type="password" name="password" id="password" value="" />
+
 						<br>
 						<br>
-						<br>
+
 						<button>
 						  <span>Login</span>
 						</button>
-					</form>
-			   </fieldset>
-
-
+			   		</fieldset>
+			   </form>
 			</div>
 
 
@@ -237,9 +55,11 @@
 					<legend>
 							Looking for the Tulsa Hub home page?
 					</legend>
+
 					<a href="http://www.tulsahub.org" title="Link to Tulsa Hub site">
-						<img src="hubSite.jpg" border="0" alt="Tulsa Hub site image"/>
+						<img src="images/hubSite.jpg" border="0" alt="Tulsa Hub site image"/>
 					</a>
+
 				</fieldset>
 			</div>
 
